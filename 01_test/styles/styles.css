@@ -2,33 +2,30 @@
 html {
   scroll-behavior: smooth;
 }
-/* ! html, body - селекторы */
+// html, body - селекторы
 body {
-  /* ! font-family - свойство, */
-  /* ! "Montserrat", sans-serif - значение свойства */
+  // font-family - свойство,
+  // "Montserrat", sans-serif - значение свойства
   font-family: "Montserrat", sans-serif;
   background-color: #f9f9f9;
-  /* ! https://developer.mozilla.org/en-US/docs/Web/CSS/background-color */
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/background-color
   color: #333; // цвет текста
   line-height: 1.6; // ширина между строчками
-  /* ! https://developer.mozilla.org/en-US/docs/Web/CSS/line-height */
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/line-height
 }
 
 main {
-  max-width: 900px;
-  /* ! максимальная ширина контейнера */
-  margin: 0 auto;
-  /* ! выравнивание */
-  padding: 2rem;
-  /* ! внутриенние отступы */
+  max-width: 900px; // максимальная ширина контейнера
+  margin: 0 auto; // выравнивание
+  padding: 2rem; // внутриенние отступы
 }
 section {
   background: #fff;
-  /* // https://developer.mozilla.org/en-US/docs/Web/CSS/background */
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/background
   border-radius: 12px; // скругление
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  /* ! смещение по оси x, по y, радиус размытия, цвет тени */
-  /* https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow */
+  // смещение по оси x, по y, радиус размытия, цвет тени
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow
   padding: 2rem;
   margin-bottom: 2rem;
 }
@@ -38,11 +35,9 @@ header {
   background: #222;
   color: #fff;
   display: flex;
-  /* ! Используем flexbox для разметки страницы */
-
   justify-content: space-between;
-  /* ! центрирование по главной оси(сейчас это x) */
-  align-items: center; /*! центрирование по вторичной оси */
+  // центрирование по главной оси(сейчас это x)
+  align-items: center; // центрирование по вторичной оси
   padding: 1rem 2rem;
 }
 
@@ -57,9 +52,9 @@ nav a {
   text-decoration: none;
 
   transition: color 0.3s ease;
-  /* ! переходы - так сказать анимации: атрибут */
+  // переходы - так сказать анимации: атрибут
 }
-/* !hover - называют псевдоклассом, это "событие", которое происходит при наведении */
+// hover - называют псевдоклассом, это "событие", которое происходит при наведении
 nav a:hover {
   color: #ff8c00;
 }
@@ -70,7 +65,7 @@ nav a:hover {
   display: flex;
   justify-content: space-between;
 }
-/* ! знак > означает , что img является прямым потмком .about */
+// знак > означает , что img является прямым потмком .about
 .about_img > img {
   border-radius: 20px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
@@ -79,7 +74,7 @@ nav a:hover {
 
 .about_img > img:hover {
   transform: translateY(-5px);
-  /* ! translateY - сдвигает вниз элемент только на вашем экране */
+  // translateY - сдвигает вниз элемент только на вашем экране
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
 }
 
@@ -142,12 +137,11 @@ nav a:hover {
   transition: all 0.2s ease;
   resize: vertical;
 }
-/* ! Псевдокласс focuse срабатывает, когда пользователь выбирает элемент   */
+
 .contact-form input:focus,
 .contact-form textarea:focus {
   border-color: #ff8c00;
   outline: none;
-  /* ! Выключаем обводку */
   box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.2);
 }
 
