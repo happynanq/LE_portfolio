@@ -1,16 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" width="200" height="120" role="img" aria-label="Minimal cloud">
-  <!-- Minimalistic filled cloud -->
-  <g fill="#61c6ff" stroke="none">
-    <circle cx="60" cy="50" r="28"/>
-    <circle cx="100" cy="40" r="36"/>
-    <circle cx="140" cy="52" r="26"/>
-    <rect x="40" y="56" width="120" height="28" rx="14"/>
-  </g>
-
-  <!-- Optional thin outline (uncomment to enable) -->
-  <!--
-  <g fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M42 68h116a14 14 0 0 0 0-28 26 26 0 0 0-22-8 36 36 0 0 0-56-8 28 28 0 0 0-36 44z"/>
-  </g>
-  -->
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud-lightning-icon lucide-cloud-lightning"><path d="M6 16.326A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 .5 8.973"/><path d="m13 12-3 5h4l-3 5"/></svg>
