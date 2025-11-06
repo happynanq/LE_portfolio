@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Todo — чистый HTML/CSS/JS</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="logo">TD</div>
+        <div>
+          <h1>Простой Todo — чистый JS/CSS/HTML</h1>
+          <div style="color: var(--muted); font-size: 13px">
+            Добавляй, редактируй, отмечай выполненное — всё хранится в
+            localStorage
+          </div>
+        </div>
+      </header>
+
+      <main class="card" id="app">
+        <div class="new-task">
+          <input
+            id="newTask"
+            type="text"
+            placeholder="Добавить задачу и нажать Enter..."
+            aria-label="Новая задача"
+          />
+          <button id="addBtn" class="btn">Добавить</button>
+        </div>
+
+        <div class="toolbar">
+          <div class="filters" role="tablist" aria-label="Фильтры задач">
+            <button class="filter-btn active" data-filter="all">Все</button>
+            <button class="filter-btn" data-filter="active">Активные</button>
+            <button class="filter-btn" data-filter="completed">
+              Выполненные
+            </button>
+          </div>
+          <div class="controls">
+            <button id="clearCompleted" class="filter-btn">
+              Очистить выполненные
+            </button>
+          </div>
+        </div>
+
+        <ul class="list" id="list" aria-live="polite"></ul>
+
+        <div class="meta">
+          <div id="count">0 задач</div>
+          <div class="spacer"></div>
+          <div style="color: var(--muted)">Сохранено в localStorage</div>
+        </div>
+      </main>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
