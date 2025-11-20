@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { MovieCard } from "./MovieCard";
+import { useMemo, useState } from "react";
+import MovieCard from "./MovieCard";
 import { MOVIES } from "./movies.data";
 import { useDebounce } from "./hooks/useDebounce";
 import { useTheme } from "./hooks/useTheme";
@@ -10,9 +10,11 @@ function App() {
 
   const debouncedSearch = useDebounce(searchTerm, 400);
 
-  const movies = MOVIES.filter((m) =>
-    m.name.toLowerCase().includes(debouncedSearch.toLowerCase())
-  );
+  const movies = useMemo(() => {
+    return MOVIES.filter((m) =>
+      m.name.toLowerCase().includes(debouncedSearch.toLowerCase())
+    );
+  }, [debouncedSearch]);
   return (
     <div className="min-h-screen w-full bg-white dark:bg-black text-black dark:text-white px-6 py-5">
       <header className="mb-10 flex items-center justify-between">

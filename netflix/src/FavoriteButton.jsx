@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { IoMdHeartEmpty, IoMdHeart, IoMdHeartHalf } from "react-icons/io";
-export function FavoriteButton() {
+function FavoriteButton() {
   const [isFavorite, setIsFavorite] = useState(false);
   return (
     <button onClick={() => setIsFavorite((prev) => !prev)}>
@@ -12,3 +12,5 @@ export function FavoriteButton() {
     </button>
   );
 }
+
+export default memo(FavoriteButton);
