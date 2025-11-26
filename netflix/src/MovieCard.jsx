@@ -12,13 +12,13 @@ export function MovieCard({ image, rating, trailerVideo }) {
           <iframe
             width="560"
             height="315"
-            src={`https://www.youtube.com/embed/${trailerVideo}`}
+            src={`https://www.youtube.com/embed/${trailerVideo}?si=u3YlXfDdzFoMyw4Q`}
             title="YouTube video player"
-            frameBorder="0"
+            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          />
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
         </Modal>
       )}
 
