@@ -1,16 +1,10 @@
 import { useEffect, useState } from "react";
 import { fetchWeatherApi } from "openmeteo";
 
-const params = {
-  latitude: 52.52,
-  longitude: 13.41,
-  hourly: ["temperature_2m", "rain"],
-  current: ["temperature_2m", "rain"],
-};
-
 const url = "https://api.open-meteo.com/v1/forecast";
 
 function getTheme(temp, rain) {
+  console.log("temp", temp);
   if (rain > 0.3) return "from-gray-700 to-blue-900"; // дождь
   if (temp > 25) return "from-yellow-300 to-orange-500"; // жара
   if (temp < 5) return "from-cyan-200 to-blue-500"; // холод
@@ -18,10 +12,38 @@ function getTheme(temp, rain) {
 }
 
 export default function App() {
+  const [city, setCity] = useState("Berlin");
+  const [coords, setCoords] = useState({ latitude: 52.52, longitude: 13.41 });
   const [currentTemp, setCurrentTemp] = useState(null);
   const [rain, setRain] = useState(null);
   const [hourlyTemps, setHourlyTemps] = useState([]);
   const [times, setTimes] = useState([]);
+
+  const searchCity = async () => {
+    if (!city) return;
+
+    const res = await fetch(
+      `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1`
+    );
+
+    const data = await res.json();
+
+    if (data.results && data.results.length > 0) {
+      const { latitude, longitude, name, country } = data.results[0];
+
+      setCoords({ latitude, longitude });
+      setCity(`${name}, ${country}`);
+    } else {
+      alert("Город не найден");
+    }
+  };
+
+  const params = {
+    latitude: coords.latitude,
+    longitude: coords.longitude,
+    hourly: ["temperature_2m", "rain"],
+    current: ["temperature_2m", "rain"],
+  };
 
   useEffect(() => {
     const call_weather = async () => {
@@ -52,7 +74,7 @@ export default function App() {
     };
 
     call_weather();
-  }, []);
+  }, [coords]);
 
   const bg = getTheme(currentTemp, rain);
 
@@ -60,6 +82,23 @@ export default function App() {
     <div
       className={`min-h-screen bg-linear-to-br ${bg} text-white p-6 transition-all duration-1000`}
     >
+      <div className="max-w-md mx-auto mb-8 flex gap-2">
+        <input
+          type="text"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+          placeholder="Введите город..."
+          className="w-full p-3 rounded-xl bg-white/70 text-black focus:outline-none"
+        />
+
+        <button
+          onClick={searchCity}
+          className="bg-black/30 px-5 rounded-xl hover:bg-black/50 transition"
+        >
+          🔍
+        </button>
+      </div>
+
       <h1 className="text-4xl font-bold text-center mb-8">🌍 Weather App</h1>
 
       <div className="max-w-md mx-auto bg-white/20 backdrop-blur-xl p-6 rounded-2xl shadow-2xl">
@@ -67,7 +106,9 @@ export default function App() {
           <p className="text-xl mb-2">Сейчас</p>
 
           <p className="text-5xl font-bold">
-            {currentTemp !== null ? `${currentTemp}°C` : "..."}
+            {currentTemp !== null
+              ? `${Math.round(currentTemp * 10) / 10}°C`
+              : "..."}
           </p>
 
           <p className="mt-2">Осадки: {rain !== null ? `${rain} мм` : "..."}</p>
