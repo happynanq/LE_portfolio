@@ -1,0 +1,147 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at top, #1a1a1d, #0d0d0f);
+  color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.status {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #00e0ff;
+  text-shadow: 0 0 10px #00e0ff, 0 0 20px #00e0ff;
+  margin-bottom: 10px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.board-row {
+  display: flex;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  margin: 5px;
+  border-radius: 15px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.square:hover {
+  background: rgba(0, 224, 255, 0.15);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00e0ff;
+}
+
+.square:active {
+  transform: scale(0.95);
+}
+
+.game-info {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.game-info button {
+  background: none;
+  border: 1px solid #00e0ff;
+  color: #00e0ff;
+  padding: 8px 16px;
+  border-radius: 10px;
+  margin: 6px 0;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.game-info button:hover {
+  background: #00e0ff;
+  color: #0d0d0f;
+  box-shadow: 0 0 10px #00e0ff, 0 0 20px #00e0ff;
+}
+
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .square {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+  }
+
+  .status {
+    font-size: 1.2rem;
+  }
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at top, #1a1a1d, #0d0d0f);
+  color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden; /* предотвратим сдвиг страницы */
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+  max-height: 95vh; /* чтобы не вылазило за экран */
+}
+
+.game-board {
+  flex-shrink: 0;
+}
+
+.game-info {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  max-height: 250px; /* ограничение по высоте */
+  overflow-y: auto; /* вертикальный скролл */
+  scrollbar-width: thin; /* аккуратный скролл в Firefox */
+  scrollbar-color: #00e0ff #0d0d0f;
+}
+
+/* для Chrome/Edge */
+.game-info::-webkit-scrollbar {
+  width: 6px;
+}
+.game-info::-webkit-scrollbar-thumb {
+  background: #00e0ff;
+  border-radius: 10px;
+}
+.game-info::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
